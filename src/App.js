@@ -20,7 +20,9 @@ function App() {
 
 //  UI의 현재 상태를 state로 저장
  let [modal, setModal] =useState(false);
-
+[1,2,3].map(function(){
+  console.log(1)
+})
 
  return(
    <div className='App'>
@@ -33,36 +35,21 @@ function App() {
        setTitle(sortTitle);
      }}>
      가나다순 정렬</button>
-     <div className='list'>
-       <h4>
-         {title[0]}
-         <span onClick={()=>{
-           setLike(like++);
-         }}>👍</span>
-         {like}
-         {/* onClick안에는 함수 이름만 넣어야함 */}
-       </h4>
-       <p>{postingDay[0]}</p>
-     </div>
-     <div className='list'>
-       <h4>
-         {title[1]}
-         <span onClick={()=>{
-           const changeTitle = [...title];
-           changeTitle[1]='마곡 카페거리';
-           setTitle(changeTitle);
-         }}>⏩</span>
-       </h4>
-         <p>{postingDay[1]}</p>
-     </div>
-         <div className='list'>
-           <h4 onClick={()=>setModal(!modal)}>{title[2]}</h4>
-           <p>{postingDay[2]}</p>
+   {
+     title.map(function(a, i){
+       return(
+        <div className='list' key={i}>
+          <h4>{title[i]}<span onClick={()=>{setLike(like++)}}>
+            👍</span>{like}</h4>
+            <p>2월 17일 발행</p>
+            </div>
+       )
+     })
+    }
          </div>
-         {
-           modal === true ? <Modal /> :null
-         }
-   </div>
+        //  {
+        //    modal === true ? <Modal /> :null
+        //  }
  )
 
 }
