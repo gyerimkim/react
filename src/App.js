@@ -17,8 +17,12 @@ function App() {
 
  let [like, setLike] = useState(0);
 
+
 //  UI의 현재 상태를 state로 저장
  let [modal, setModal] =useState(false);
+ const active = ()=>{
+   setModal(true)
+ }
 
  return(
    <div className='App'>
@@ -54,12 +58,9 @@ function App() {
          <p>{postingDay[1]}</p>
      </div>
          <div className='list'>
-           <h4 onClick={() =>
-
-          //  true 일떄 한번 더 누르면 false가 된다
-          setModal(true) === true ? setModal(true) : setModal(false)
-           }>{title[2]}</h4>
-           <p>{postingDay}</p>
+           <h4 onClick={!active
+               }>{title[2]}</h4>
+           <p>{postingDay[2]}</p>
          </div>
          {
            modal === true ? <Modal /> :null
